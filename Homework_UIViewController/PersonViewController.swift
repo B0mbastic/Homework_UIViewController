@@ -1,13 +1,13 @@
 //
-//  ViewController.swift
+//  PersonViewController.swift
 //  Homework_UIViewController
 //
-//  Created by Александр Ковбасин on 31.01.2023.
+//  Created by Александр Ковбасин on 07.02.2023.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class PersonViewController: UIViewController {
 
     @IBOutlet weak var nameSwitchButton: UIButton!
     
@@ -65,4 +65,5 @@ class ViewController: UIViewController {
         UIPasteboard.general.string = addressField.text
     }
 }
+
 
