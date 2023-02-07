@@ -1,68 +1,79 @@
 //
 //  ViewController.swift
-//  Homework_UIViewController
+//  TableView
 //
-//  Created by Александр Ковбасин on 31.01.2023.
+//  Created by Александр Ковбасин on 05.02.2023.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        let newRed = CGFloat(red)/255
+        let newGreen = CGFloat(green)/255
+        let newBlue = CGFloat(blue)/255
+        
+        self.init(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
+    }
+}
 
-    @IBOutlet weak var nameSwitchButton: UIButton!
+class ViewController: UIViewController {
     
-    @IBOutlet weak var nameField: UITextField!
-    @IBOutlet weak var positionField: UITextField!
-    @IBOutlet weak var addressField: UITextField!
+    var personsTableView = UITableView()
+    let identifier = "hwIdentifier"
+    struct personRecord {
+        let personFirstName: String
+        let personMiddleName: String
+        let personLastName: String
+        let personPosition: String
+        let personAddress: String
+        let personPhoto: String
+    }
+    let personsArray = [personRecord(personFirstName: "John", personMiddleName: "James", personLastName: "Rambo", personPosition: "soldier", personAddress: "USA, Bowie, Arizona", personPhoto: "logo0"), personRecord(personFirstName: "Alan", personMiddleName: "X", personLastName: "Schaefer", personPosition: "green berette", personAddress: "USA", personPhoto: "logo1"), personRecord(personFirstName: "Marion", personMiddleName: "X", personLastName: "Cobretti", personPosition: "policeman", personAddress: "USA", personPhoto: "logo2")]
     
-    @IBOutlet weak var logoPicture: UIImageView!
-    
-    @IBOutlet weak var switchNameButton: UIButton!
-    @IBOutlet weak var copyAddressButton: UIButton!
-    
-    private var nameSwitched: Bool = false
-    private var firstName: String = "John"
-    private var middleName: String = "James"
-    private var lastName: String = "Rambo"
+    //let personsArray = ["John Rambo", "Alan Schaefer", "Marion Cobretti"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        logoPicture.frame = CGRect(x: 100, y: 100, width: 200, height: 200)
-        logoPicture.layer.borderWidth = 1
-        logoPicture.layer.cornerRadius = 100
-        logoPicture.image = UIImage(named: "logo1")
-        
-        nameField.text = "\(firstName) \(middleName) \(lastName)"
-        nameField.layer.borderWidth = 1
-        nameField.layer.cornerRadius = 10
-        
-        positionField.layer.borderWidth = 1
-        positionField.layer.cornerRadius = 10
-        
-        addressField.layer.borderWidth = 1
-        addressField.layer.cornerRadius = 10
-        
-        switchNameButton.layer.borderWidth = 1
-        switchNameButton.layer.cornerRadius = 25
-        
-        copyAddressButton.layer.borderWidth = 1
-        copyAddressButton.layer.cornerRadius = 25
         // Do any additional setup after loading the view.
+        personsTableView = UITableView(frame: view.bounds, style: .plain)
+        personsTableView.register(PersonsViewCell.self, forCellReuseIdentifier: identifier)
+        personsTableView.delegate = self
+        personsTableView.dataSource = self
+        personsTableView.backgroundColor = UIColor(red: 244, green: 255, blue: 210)
+        personsTableView.rowHeight = 80
+        self.view.addSubview(personsTableView)
     }
 
-    @IBAction func nameSwitch(_ sender: Any) {
-        if !nameSwitched {
-            nameField.text = firstName
-            nameSwitched = true
-        }
-        else {
-            nameField.text = "\(firstName) \(middleName) \(lastName)"
-            nameSwitched = false
-        }
+
+}
+
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return personsArray.count
     }
     
-    @IBAction func copyAddress(_ sender: Any) {
-        UIPasteboard.general.string = addressField.text
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = personsTableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? PersonsViewCell
+        let personName: String
+        personName = "\(personsArray[indexPath.row].personFirstName) \(personsArray[indexPath.row].personMiddleName) \(personsArray[indexPath.row].personLastName)"
+        cell?.setPersonName(personName: personName, personPhoto: personsArray[indexPath.row].personPhoto)
+        return cell ?? PersonsViewCell()
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let personViewController = PersonViewController()
+        personViewController.personFirstName = personsArray[indexPath.row].personFirstName
+        personViewController.personMiddleName = personsArray[indexPath.row].personMiddleName
+        personViewController.personLastName = personsArray[indexPath.row].personLastName
+        personViewController.personPosition = personsArray[indexPath.row].personPosition
+        personViewController.personAddress = personsArray[indexPath.row].personAddress
+        
+        personViewController.personPhoto = personsArray[indexPath.row].personPhoto
+        
+        present(personViewController, animated: true)
     }
 }
 

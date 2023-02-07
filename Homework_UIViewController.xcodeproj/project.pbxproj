@@ -14,6 +14,7 @@
 		D2B3E2EB2988216E00EE0568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B3E2EA2988216E00EE0568 /* Assets.xcassets */; };
 		D2B3E2EE2988216E00EE0568 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B3E2EC2988216E00EE0568 /* LaunchScreen.storyboard */; };
 		D2B661E42991645200DDEE5B /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B661E32991645200DDEE5B /* PersonViewController.swift */; };
+		D2B661E6299165D500DDEE5B /* PersonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B661E5299165D500DDEE5B /* PersonViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D2B3E2ED2988216E00EE0568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2B3E2EF2988216E00EE0568 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2B661E32991645200DDEE5B /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
+		D2B661E5299165D500DDEE5B /* PersonViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				D2B3E2E12988216D00EE0568 /* AppDelegate.swift */,
 				D2B3E2E32988216D00EE0568 /* SceneDelegate.swift */,
 				D2B3E2E52988216D00EE0568 /* ViewController.swift */,
+				D2B661E5299165D500DDEE5B /* PersonViewCell.swift */,
 				D2B661E32991645200DDEE5B /* PersonViewController.swift */,
 				D2B3E2E72988216D00EE0568 /* Main.storyboard */,
 				D2B3E2EA2988216E00EE0568 /* Assets.xcassets */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2B3E2E62988216D00EE0568 /* ViewController.swift in Sources */,
+				D2B661E6299165D500DDEE5B /* PersonViewCell.swift in Sources */,
 				D2B3E2E22988216D00EE0568 /* AppDelegate.swift in Sources */,
 				D2B3E2E42988216D00EE0568 /* SceneDelegate.swift in Sources */,
 				D2B661E42991645200DDEE5B /* PersonViewController.swift in Sources */,

@@ -11,52 +11,73 @@ class PersonViewController: UIViewController {
 
     @IBOutlet weak var nameSwitchButton: UIButton!
     
+    
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var positionField: UITextField!
     @IBOutlet weak var addressField: UITextField!
     
-    @IBOutlet weak var logoPicture: UIImageView!
+    @IBOutlet weak var personPhotoImageView: UIImageView!
     
     @IBOutlet weak var switchNameButton: UIButton!
     @IBOutlet weak var copyAddressButton: UIButton!
     
     private var nameSwitched: Bool = false
-    private var firstName: String = "John"
-    private var middleName: String = "James"
-    private var lastName: String = "Rambo"
+
+    var personFirstName: String = ""
+    var personMiddleName: String = ""
+    var personLastName: String = ""
+    var personPosition: String = ""
+    var personAddress: String = ""
+    var personPhoto: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        logoPicture.frame = CGRect(x: 100, y: 100, width: 200, height: 200)
-        logoPicture.layer.borderWidth = 1
-        logoPicture.layer.cornerRadius = 100
-        logoPicture.image = UIImage(named: "logo1")
         
-        nameField.text = "\(firstName) \(middleName) \(lastName)"
-        nameField.layer.borderWidth = 1
-        nameField.layer.cornerRadius = 10
         
-        positionField.layer.borderWidth = 1
-        positionField.layer.cornerRadius = 10
+        //let personPhotoImageView = UIImageView(frame: CGRect(x: 100, y: 100, width: 200, height: 200))
+        //let nameTextField = UITextField()
+
+        view.backgroundColor = UIColor(red: 244, green: 255, blue: 210)
         
-        addressField.layer.borderWidth = 1
-        addressField.layer.cornerRadius = 10
+        personPhotoImageView.frame = CGRect(x: 100, y: 100, width: 200, height: 200)
+        personPhotoImageView.layer.borderWidth = 1
+        personPhotoImageView.contentMode = .scaleAspectFill
+        personPhotoImageView.layer.cornerRadius = 100
+        personPhotoImageView.clipsToBounds = true
+        personPhotoImageView.image = UIImage(named: personPhoto)
+//        self.view.addSubview(personPhotoImageView)
+//        logoPicture.frame = CGRect(x: 100, y: 100, width: 200, height: 200)
+//        logoPicture.layer.borderWidth = 1
+//        logoPicture.layer.cornerRadius = 100
+//        logoPicture.image = UIImage(named: "personPhoto")
         
-        switchNameButton.layer.borderWidth = 1
-        switchNameButton.layer.cornerRadius = 25
-        
-        copyAddressButton.layer.borderWidth = 1
-        copyAddressButton.layer.cornerRadius = 25
+//        print(nameField)
+//        
+//        nameField.text = "test"//"\(personFirstName) \(personMiddleName) \(personLastName)"
+//        nameField.layer.borderWidth = 1
+//        nameField.layer.cornerRadius = 10
+//        
+//        positionField.layer.borderWidth = 1
+//        positionField.layer.cornerRadius = 10
+//        
+//        addressField.layer.borderWidth = 1
+//        addressField.layer.cornerRadius = 10
+//        
+//        switchNameButton.layer.borderWidth = 1
+//        switchNameButton.layer.cornerRadius = 25
+//        
+//        copyAddressButton.layer.borderWidth = 1
+//        copyAddressButton.layer.cornerRadius = 25
         // Do any additional setup after loading the view.
     }
 
     @IBAction func nameSwitch(_ sender: Any) {
         if !nameSwitched {
-            nameField.text = firstName
+            nameField.text = personFirstName
             nameSwitched = true
         }
         else {
-            nameField.text = "\(firstName) \(middleName) \(lastName)"
+            nameField.text = "\(personFirstName) \(personMiddleName) \(personLastName)"
             nameSwitched = false
         }
     }

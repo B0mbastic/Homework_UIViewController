@@ -22,7 +22,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="Hello World!">
                                         <attributes>
-                                            <font key="NSFont" size="36" name=".SFNS-Regular"/>
+                                            <font key="NSFont" metaFont="system" size="36"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
