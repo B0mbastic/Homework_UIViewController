@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         let personAddress: String
         let personPhoto: String
     }
-    let personsArray = [personRecord(personFirstName: "John", personMiddleName: "James", personLastName: "Rambo", personPosition: "soldier", personAddress: "USA, Bowie, Arizona", personPhoto: "logo0"), personRecord(personFirstName: "Alan", personMiddleName: "X", personLastName: "Schaefer", personPosition: "green berette", personAddress: "USA", personPhoto: "logo1"), personRecord(personFirstName: "Marion", personMiddleName: "X", personLastName: "Cobretti", personPosition: "policeman", personAddress: "USA", personPhoto: "logo2")]
+    let personsArray = [personRecord(personFirstName: "John", personMiddleName: "James", personLastName: "Rambo", personPosition: "soldier", personAddress: "USA, Bowie, Arizona", personPhoto: "logo0"), personRecord(personFirstName: "Alan", personMiddleName: "", personLastName: "Schaefer", personPosition: "green berette", personAddress: "South America", personPhoto: "logo1"), personRecord(personFirstName: "Marion", personMiddleName: "", personLastName: "Cobretti", personPosition: "policeman", personAddress: "USA, Los Angeles", personPhoto: "logo2")]
     
     //let personsArray = ["John Rambo", "Alan Schaefer", "Marion Cobretti"]
     

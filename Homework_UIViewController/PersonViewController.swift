@@ -8,18 +8,6 @@
 import UIKit
 
 class PersonViewController: UIViewController {
-
-//  //  @IBOutlet weak var nameSwitchButton: UIButton!
-//
-//
-// //   @IBOutlet weak var nameField: UITextField!
-//    @IBOutlet weak var positionField: UITextField!
-//    @IBOutlet weak var addressField: UITextField!
-//
-//   // @IBOutlet weak var personPhotoImageView: UIImageView!
-//
-//    //@IBOutlet weak var switchNameButton: UIButton!
-//    @IBOutlet weak var copyAddressButton: UIButton!
     
     private var nameSwitched: Bool = false
 
@@ -33,65 +21,120 @@ class PersonViewController: UIViewController {
     let personPhotoImageView = UIImageView()
     let personNameLabel = UILabel()
     let nameTextField = UITextField()
+    let personPositionLabel = UILabel()
+    let positionTextField = UITextField()
+    let personAddressLabel = UILabel()
+    let addressTextField = UITextField()
     let nameSwitchButton = UIButton()
+    let addressCopyButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-
-
         view.backgroundColor = UIColor(red: 244, green: 255, blue: 210)
-        
-        personPhotoImageView.frame = CGRect(x: 100, y: 100, width: 200, height: 200)
+
+        self.view.addSubview(personPhotoImageView)
+        personPhotoImageView.translatesAutoresizingMaskIntoConstraints = false
+        personPhotoImageView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100).isActive = true
+        personPhotoImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        personPhotoImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        personPhotoImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         personPhotoImageView.layer.borderWidth = 1
         personPhotoImageView.contentMode = .scaleAspectFill
         personPhotoImageView.layer.cornerRadius = 100
         personPhotoImageView.clipsToBounds = true
         personPhotoImageView.image = UIImage(named: personPhoto)
-        self.view.addSubview(personPhotoImageView)
-        
-        personNameLabel.frame = CGRect(x: 45, y: 320, width: 100, height: 30)
+
+
+        self.view.addSubview(personNameLabel)
+        personNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        personNameLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 40).isActive = true
+        personNameLabel.topAnchor.constraint(equalTo: personPhotoImageView.bottomAnchor, constant: 40).isActive = true
+        personNameLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        personNameLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         personNameLabel.textAlignment = .right
         personNameLabel.text = "NAME:"
-        self.view.addSubview(personNameLabel)
+ 
+        self.view.addSubview(personPositionLabel)
+        personPositionLabel.translatesAutoresizingMaskIntoConstraints = false
+        personPositionLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 40).isActive = true
+        personPositionLabel.topAnchor.constraint(equalTo: personNameLabel.bottomAnchor, constant: 10).isActive = true
+        personPositionLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        personPositionLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        personPositionLabel.textAlignment = .right
+        personPositionLabel.text = "POSITION:"
+        
+        self.view.addSubview(personAddressLabel)
+        personAddressLabel.translatesAutoresizingMaskIntoConstraints = false
+        personAddressLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 40).isActive = true
+        personAddressLabel.topAnchor.constraint(equalTo: personPositionLabel.bottomAnchor, constant: 10).isActive = true
+        personAddressLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        personAddressLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        personAddressLabel.textAlignment = .right
+        personAddressLabel.text = "ADDRESS:"
         
         self.view.addSubview(nameTextField)
-        nameTextField.frame = CGRect(x: 150, y: 320, width: 200, height: 30)
-        nameTextField.text = "\(personFirstName) \(personMiddleName) \(personLastName)"
+        nameTextField.translatesAutoresizingMaskIntoConstraints = false
+        nameTextField.leadingAnchor.constraint(equalTo: personNameLabel.trailingAnchor, constant: 20).isActive = true
+        nameTextField.topAnchor.constraint(equalTo: personPhotoImageView.bottomAnchor, constant: 40).isActive = true
         nameTextField.layer.borderWidth = 1
+        nameTextField.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        nameTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        nameTextField.text = "\(personFirstName) \(personMiddleName) \(personLastName)"
         nameTextField.layer.cornerRadius = 10
         nameTextField.backgroundColor = UIColor(red: 255, green: 255, blue: 255)
         
-        self.view.addSubview(nameSwitchButton)
-        nameSwitchButton.frame = CGRect(x: 150, y: 400, width: 200, height: 60)
-        nameSwitchButton.setTitle("SWITCH NAME", for: .normal)
-        nameSwitchButton.layer.borderWidth = 1
-        nameSwitchButton.layer.cornerRadius = 5
-        nameSwitchButton.backgroundColor = UIColor(red: 255, green: 255, blue: 255)
+        self.view.addSubview(positionTextField)
+        positionTextField.translatesAutoresizingMaskIntoConstraints = false
+        positionTextField.leadingAnchor.constraint(equalTo: personPositionLabel.trailingAnchor, constant: 20).isActive = true
+        positionTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 10).isActive = true
+        positionTextField.layer.borderWidth = 1
+        positionTextField.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        positionTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        positionTextField.text = "\(personPosition)"
+        positionTextField.layer.cornerRadius = 10
+        positionTextField.backgroundColor = UIColor(red: 255, green: 255, blue: 255)
+
+        self.view.addSubview(addressTextField)
+        addressTextField.translatesAutoresizingMaskIntoConstraints = false
+        addressTextField.leadingAnchor.constraint(equalTo: personAddressLabel.trailingAnchor, constant: 20).isActive = true
+        addressTextField.topAnchor.constraint(equalTo: positionTextField.bottomAnchor, constant: 10).isActive = true
+        addressTextField.layer.borderWidth = 1
+        addressTextField.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        addressTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        addressTextField.text = "\(personAddress)"
+        addressTextField.layer.cornerRadius = 10
+        addressTextField.backgroundColor = UIColor(red: 255, green: 255, blue: 255)
         
-       // myFirstButton.setTitle("✸", for: .normal)
-          //  myFirstButton.setTitleColor(.blue, for: .normal)
-        //    myFirstButton.frame = CGRect(x: 15, y: -50, width: 300, height: 500)
+        self.view.addSubview(nameSwitchButton)
+        nameSwitchButton.translatesAutoresizingMaskIntoConstraints = false
+        nameSwitchButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        nameSwitchButton.topAnchor.constraint(equalTo: personAddressLabel.bottomAnchor, constant: 40).isActive = true
+        nameSwitchButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        nameSwitchButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        nameSwitchButton.setTitle("SWITCH NAME", for: .normal)
+        nameSwitchButton.setTitleColor(.black, for: .normal)
+        nameSwitchButton.layer.borderWidth = 1
+        nameSwitchButton.layer.cornerRadius = 20
+        nameSwitchButton.backgroundColor = UIColor(red: 167, green: 241, blue: 132)
+
         nameSwitchButton.addTarget(self, action: #selector(nameSwitch), for: .touchUpInside)
         
+        self.view.addSubview(addressCopyButton)
+        addressCopyButton.translatesAutoresizingMaskIntoConstraints = false
+        addressCopyButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        addressCopyButton.topAnchor.constraint(equalTo: nameSwitchButton.bottomAnchor, constant: 10).isActive = true
+        addressCopyButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        addressCopyButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
+        addressCopyButton.setTitle("COPY ADDRESS", for: .normal)
+        addressCopyButton.setTitleColor(.black, for: .normal)
+        addressCopyButton.layer.borderWidth = 1
+        addressCopyButton.layer.cornerRadius = 20
+        addressCopyButton.backgroundColor = UIColor(red: 167, green: 241, blue: 132)
 
-        
-        
-        
-//        positionField.layer.borderWidth = 1
-//        positionField.layer.cornerRadius = 10
-//        
-//        addressField.layer.borderWidth = 1
-//        addressField.layer.cornerRadius = 10
-//        
-//        switchNameButton.layer.borderWidth = 1
-//        switchNameButton.layer.cornerRadius = 25
-//        
-//        copyAddressButton.layer.borderWidth = 1
-//        copyAddressButton.layer.cornerRadius = 25
-        // Do any additional setup after loading the view.
+        addressCopyButton.addTarget(self, action: #selector(copyAddress), for: .touchUpInside)
     }
 
     @objc func nameSwitch(sender: UIButton!){
@@ -105,9 +148,9 @@ class PersonViewController: UIViewController {
         }
     }
     
-//    @objc func copyAddress(_ sender: Any) {
-//        UIPasteboard.general.string = addressField.text
-//    }
+    @objc func copyAddress(_ sender: UIButton) {
+        UIPasteboard.general.string = addressTextField.text
+    }
 }
 
 
