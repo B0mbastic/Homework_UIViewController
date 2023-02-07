@@ -18,15 +18,15 @@ class PersonViewController: UIViewController {
     var personAddress: String = ""
     var personPhoto: String = ""
     
-    let personPhotoImageView = UIImageView()
-    let personNameLabel = UILabel()
-    let nameTextField = UITextField()
-    let personPositionLabel = UILabel()
-    let positionTextField = UITextField()
-    let personAddressLabel = UILabel()
-    let addressTextField = UITextField()
-    let nameSwitchButton = UIButton()
-    let addressCopyButton = UIButton()
+    private let personPhotoImageView = UIImageView()
+    private let personNameLabel = UILabel()
+    private let nameTextField = UITextField()
+    private let personPositionLabel = UILabel()
+    private let positionTextField = UITextField()
+    private let personAddressLabel = UILabel()
+    private let addressTextField = UITextField()
+    private let nameSwitchButton = UIButton()
+    private let addressCopyButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()

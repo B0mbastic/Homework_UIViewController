@@ -19,9 +19,9 @@ extension UIColor {
 
 class ViewController: UIViewController {
     
-    var personsTableView = UITableView()
-    let identifier = "hwIdentifier"
-    struct personRecord {
+    private var personsTableView = UITableView()
+    private let identifier = "hwIdentifier"
+    private struct personRecord {
         let personFirstName: String
         let personMiddleName: String
         let personLastName: String
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         let personAddress: String
         let personPhoto: String
     }
-    let personsArray = [personRecord(personFirstName: "John", personMiddleName: "James", personLastName: "Rambo", personPosition: "soldier", personAddress: "USA, Bowie, Arizona", personPhoto: "logo0"), personRecord(personFirstName: "Alan", personMiddleName: "", personLastName: "Schaefer", personPosition: "green berette", personAddress: "South America", personPhoto: "logo1"), personRecord(personFirstName: "Marion", personMiddleName: "", personLastName: "Cobretti", personPosition: "policeman", personAddress: "USA, Los Angeles", personPhoto: "logo2")]
+    private let personsArray = [personRecord(personFirstName: "John", personMiddleName: "James", personLastName: "Rambo", personPosition: "soldier", personAddress: "USA, Bowie, Arizona", personPhoto: "logo0"), personRecord(personFirstName: "Alan", personMiddleName: "", personLastName: "Schaefer", personPosition: "green berette", personAddress: "South America", personPhoto: "logo1"), personRecord(personFirstName: "Marion", personMiddleName: "", personLastName: "Cobretti", personPosition: "policeman", personAddress: "USA, Los Angeles", personPhoto: "logo2")]
     
     //let personsArray = ["John Rambo", "Alan Schaefer", "Marion Cobretti"]
     
