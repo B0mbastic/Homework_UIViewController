@@ -34,7 +34,7 @@ class PersonViewController: UIViewController {
         super.viewDidLoad()
         
         
-        //let personPhotoImageView = UIImageView(frame: CGRect(x: 100, y: 100, width: 200, height: 200))
+        let personPhotoImageView = UIImageView()
         //let nameTextField = UITextField()
 
         view.backgroundColor = UIColor(red: 244, green: 255, blue: 210)
@@ -45,7 +45,7 @@ class PersonViewController: UIViewController {
         personPhotoImageView.layer.cornerRadius = 100
         personPhotoImageView.clipsToBounds = true
         personPhotoImageView.image = UIImage(named: personPhoto)
-//        self.view.addSubview(personPhotoImageView)
+        self.view.addSubview(personPhotoImageView)
 //        logoPicture.frame = CGRect(x: 100, y: 100, width: 200, height: 200)
 //        logoPicture.layer.borderWidth = 1
 //        logoPicture.layer.cornerRadius = 100
