@@ -7,6 +7,16 @@
 
 import UIKit
 
+class InsetsTextField: UITextField {
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.insetBy(dx: 10, dy: 4)
+    }
+    
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.insetBy(dx: 10, dy: 4)
+    }
+}
+
 class PersonViewController: UIViewController {
     
     private var nameSwitched: Bool = false
@@ -18,15 +28,15 @@ class PersonViewController: UIViewController {
     var personAddress: String = ""
     var personPhoto: String = ""
     
-    private let personPhotoImageView = UIImageView()
-    private let personNameLabel = UILabel()
-    private let nameTextField = UITextField()
-    private let personPositionLabel = UILabel()
-    private let positionTextField = UITextField()
-    private let personAddressLabel = UILabel()
-    private let addressTextField = UITextField()
-    private let nameSwitchButton = UIButton()
-    private let addressCopyButton = UIButton()
+    private lazy var personPhotoImageView = UIImageView()
+    private lazy var personNameLabel = UILabel()
+    private lazy var nameTextField = InsetsTextField()
+    private lazy var personPositionLabel = UILabel()
+    private lazy var positionTextField = InsetsTextField()
+    private lazy var personAddressLabel = UILabel()
+    private lazy var addressTextField = InsetsTextField()
+    private lazy var nameSwitchButton = UIButton()
+    private lazy var addressCopyButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
